@@ -8,27 +8,51 @@ Class StrUtils {
 		$this->_str = $newString;
 	}
 
+	public function getStr() {
+		return $this->_str;
+	}
+
 	public function bold() {
-		return '<strong>' . $this->_str . '</strong>';
+		$this->_str = '<strong>' . $this->_str . '</strong>';
+		return $this->_str ;
 	}
 
 	public function italic() {
-		return '<i>' . $this->_str . '</i>';
+		$this->_str = '<i>' . $this->_str . '</i>';
+		return $this->_str ;
 	}
 
 	public function underline() {
-		return '<u>' . $this->_str . '</u>';
+		$this->_str = '<u>' . $this->_str . '</u>';
+		return $this->_str ;
 	}
 
 	public function capitalize() {
-		return ucfirst($this->_str);
+		$this->_str = ucfirst($this->_str);
+		return $this->_str;
+	}
+
+	public function uglify() {
+		$this->bold();
+		$this->italic();
+		$this->underline();
+		return $this->_str;
 	}
 }
 
-$Obj = new StrUtils("blabla");
-var_dump($Obj);
-echo $Obj->str;
-echo $Obj->bold();
-echo $Obj->italic();
-echo $Obj->underline();
-echo $Obj->capitalize();
+$Str_Normal = new StrUtils("Hello world");
+$Str_Bold = new StrUtils("Yop le monde");
+$Str_Italic = new StrUtils("Salut");
+$Str_Underline = new StrUtils("Coucou");
+$Str_Capitalize = new StrUtils("Hello");
+$Str_Ugly = new StrUtils("hey !");
+?>
+
+<ul>
+	<li>Normal : <?= $Str_Normal->getStr() ?></li>
+	<li>Bold : <?= $Str_Bold->bold() ?></li>
+	<li>Italic : <?= $Str_Italic->italic() ?></li>
+	<li>Underline :	<?= $Str_Underline->underline() ?></li>
+	<li>Capitalize : <?= $Str_Capitalize->capitalize() ?></li>
+	<li>Ugly : <?= $Str_Ugly->uglify() ?></li>
+</ul>
