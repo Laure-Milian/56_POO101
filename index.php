@@ -14,45 +14,45 @@ Class StrUtils {
 
 	public function bold() {
 		$this->_str = '<strong>' . $this->_str . '</strong>';
-		return $this->_str ;
 	}
 
 	public function italic() {
 		$this->_str = '<i>' . $this->_str . '</i>';
-		return $this->_str ;
 	}
 
 	public function underline() {
 		$this->_str = '<u>' . $this->_str . '</u>';
-		return $this->_str ;
 	}
 
 	public function capitalize() {
 		$this->_str = ucfirst($this->_str);
-		return $this->_str;
 	}
 
 	public function uglify() {
 		$this->bold();
 		$this->italic();
 		$this->underline();
-		return $this->_str;
 	}
 }
 
 $Str_Normal = new StrUtils("Hello world");
 $Str_Bold = new StrUtils("Yop le monde");
+$Str_Bold->bold();
 $Str_Italic = new StrUtils("Salut");
+$Str_Italic->italic();
 $Str_Underline = new StrUtils("Coucou");
+$Str_Underline->underline();
 $Str_Capitalize = new StrUtils("Hello");
+$Str_Capitalize->capitalize();
 $Str_Ugly = new StrUtils("hey !");
+$Str_Ugly->uglify();
 ?>
 
 <ul>
 	<li>Normal : <?= $Str_Normal->getStr() ?></li>
-	<li>Bold : <?= $Str_Bold->bold() ?></li>
-	<li>Italic : <?= $Str_Italic->italic() ?></li>
-	<li>Underline :	<?= $Str_Underline->underline() ?></li>
-	<li>Capitalize : <?= $Str_Capitalize->capitalize() ?></li>
-	<li>Ugly : <?= $Str_Ugly->uglify() ?></li>
+	<li>Bold : <?= $Str_Bold->getStr() ?></li>
+	<li>Italic : <?= $Str_Italic->getStr() ?></li>
+	<li>Underline :	<?= $Str_Underline->getStr() ?></li>
+	<li>Capitalize : <?= $Str_Capitalize->getStr() ?></li>
+	<li>Ugly : <?= $Str_Ugly->getStr() ?></li>
 </ul>
